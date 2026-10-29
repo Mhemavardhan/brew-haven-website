@@ -508,39 +508,39 @@ index 27ad7a9,939c4fd..0000000
 $ git branch -M main
 
 <span class="cmd"># 2. Link local repository to public GitHub repository</span>
-$ git remote add origin https://github.com/YOUR_GITHUB_USERNAME/brew-haven-website.git
+$ git remote add origin https://github.com/Mhemavardhan/brew-haven-website.git
 
 <span class="cmd"># 3. Verify remote association</span>
 $ git remote -v
-origin  https://github.com/YOUR_GITHUB_USERNAME/brew-haven-website.git (fetch)
-origin  https://github.com/YOUR_GITHUB_USERNAME/brew-haven-website.git (push)
+origin  https://github.com/Mhemavardhan/brew-haven-website.git (fetch)
+origin  https://github.com/Mhemavardhan/brew-haven-website.git (push)
 
 <span class="cmd"># 4. Push all commits and branches to GitHub</span>
 $ git push -u origin main
 Enumerating objects: 19, done.
 Counting objects: 100% (19/19), done.
 Writing objects: 100% (19/19), 18.4 KiB | 18.4 MiB/s, done.
-To https://github.com/YOUR_GITHUB_USERNAME/brew-haven-website.git
+To https://github.com/Mhemavardhan/brew-haven-website.git
  * [new branch]      main -> main
 Branch 'main' set up to track remote branch 'main' from 'origin'.
 
 <span class="cmd"># 5. Synchronize upstream changes (demonstration)</span>
 $ git pull origin main
-From https://github.com/YOUR_GITHUB_USERNAME/brew-haven-website
+From https://github.com/Mhemavardhan/brew-haven-website
  * branch            main     -> FETCH_HEAD
 Already up to date.
 </div>
 
 <h2>8. GitHub Pages Deployment Procedure</h2>
 <ol>
-  <li>Open <strong>GitHub</strong> in your web browser and navigate to your repository: <code>https://github.com/YOUR_GITHUB_USERNAME/brew-haven-website</code>.</li>
+  <li>Open <strong>GitHub</strong> in your web browser and navigate to your repository: <code>https://github.com/Mhemavardhan/brew-haven-website</code>.</li>
   <li>Click on the <strong>Settings</strong> tab at the top right of the repository navigation bar.</li>
   <li>In the left sidebar under the <em>Code and automation</em> group, click on <strong>Pages</strong>.</li>
   <li>Under <strong>Build and deployment &rarr; Source</strong>, ensure <strong>"Deploy from a branch"</strong> is selected.</li>
   <li>Under <strong>Branch</strong>, select <code>main</code> from the branch dropdown, and leave the directory set to <code>/ (root)</code>.</li>
   <li>Click <strong>Save</strong>.</li>
   <li>Wait 60–90 seconds for GitHub Actions to complete the <code>pages-build-deployment</code> workflow.</li>
-  <li>Refresh the page; a green banner will appear stating: <em>"Your site is live at https://YOUR_GITHUB_USERNAME.github.io/brew-haven-website/"</em>.</li>
+  <li>Refresh the page; a green banner will appear stating: <em>"Your site is live at https://Mhemavardhan.github.io/brew-haven-website/"</em>.</li>
   <li>Click <strong>Visit site</strong> to confirm that the live website renders with all styling, images, menu filters, and table reservation functionality active.</li>
 </ol>
 

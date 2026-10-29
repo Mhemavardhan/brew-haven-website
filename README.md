@@ -104,8 +104,8 @@ This repository was constructed and version-controlled following the official SE
 
 ## 🌐 Live Deployment & Repository Links
 
-- **GitHub Repository:** `https://github.com/YOUR_USERNAME/brew-haven-website` *(Pending student push)*
-- **Live GitHub Pages URL:** `https://YOUR_USERNAME.github.io/brew-haven-website/` *(Pending student deployment)*
+- **GitHub Repository:** [https://github.com/Mhemavardhan/brew-haven-website](https://github.com/Mhemavardhan/brew-haven-website)
+- **Live GitHub Pages URL:** [https://mhemavardhan.github.io/brew-haven-website/](https://mhemavardhan.github.io/brew-haven-website/)
 
 ---
 

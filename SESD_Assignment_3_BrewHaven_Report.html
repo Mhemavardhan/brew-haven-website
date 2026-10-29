@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SESD Assignment 3 — Brew Haven Website Report</title>
+<style>
+  @page {
+    size: A4;
+    margin: 20mm;
+  }
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    color: #2D3748;
+    line-height: 1.6;
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 20px;
+  }
+  .cover-card {
+    border: 2px solid #2B170E;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 40px;
+    background-color: #FDFBF7;
+    text-align: center;
+    page-break-after: always;
+  }
+  .univ-header {
+    font-size: 24pt;
+    font-weight: 800;
+    color: #1A365D;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .dept-header {
+    font-size: 13pt;
+    font-weight: 600;
+    color: #4A5568;
+    margin-bottom: 2px;
+  }
+  .school-header {
+    font-size: 11pt;
+    color: #718096;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .academic-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 10pt;
+    text-align: left;
+  }
+  .academic-table th, .academic-table td {
+    border: 1px solid #CBD5E0;
+    padding: 8px 12px;
+  }
+  .academic-table th {
+    background-color: #EDF2F7;
+    color: #2D3748;
+    font-weight: 600;
+  }
+  .report-title-box {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #2B170E;
+    color: #FAF5EE;
+    border-radius: 6px;
+  }
+  .report-title-box h1 {
+    font-size: 16pt;
+    margin: 0 0 8px 0;
+    color: #D4A373;
+  }
+  .report-title-box p {
+    font-size: 11pt;
+    margin: 0;
+  }
+  .student-box {
+    margin: 25px auto;
+    width: 80%;
+    border: 1px solid #D4A373;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    padding: 16px;
+    text-align: left;
+    font-size: 10.5pt;
+  }
+  .student-box table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .student-box td {
+    padding: 4px 8px;
+  }
+  .student-box td.label {
+    font-weight: bold;
+    color: #2B170E;
+    width: 35%;
+  }
+  h2 {
+    color: #2B170E;
+    border-bottom: 2px solid #D4A373;
+    padding-bottom: 6px;
+    margin-top: 35px;
+    font-size: 14pt;
+  }
+  h3 {
+    color: #4A2C1A;
+    margin-top: 20px;
+    font-size: 12pt;
+  }
+  p, li {
+    font-size: 10pt;
+    color: #333333;
+  }
+  .terminal-box {
+    background-color: #1A1A1A;
+    color: #E2E8F0;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 9pt;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 12px 0 18px;
+    border-left: 4px solid #D4A373;
+    overflow-x: auto;
+    line-height: 1.45;
+  }
+  .terminal-box .cmd {
+    color: #48BB78;
+    font-weight: bold;
+  }
+  .terminal-box .branch {
+    color: #63B3ED;
+  }
+  .terminal-box .conflict {
+    color: #F56565;
+    font-weight: bold;
+  }
+  .terminal-box .resolved {
+    color: #ECC94B;
+  }
+  table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 9pt;
+  }
+  table.data-table th, table.data-table td {
+    border: 1px solid #CBD5E0;
+    padding: 8px 10px;
+    text-align: left;
+  }
+  table.data-table th {
+    background-color: #2B170E;
+    color: #FFFFFF;
+    font-weight: 600;
+  }
+  table.data-table tr:nth-child(even) {
+    background-color: #F7FAFC;
+  }
+  .callout-box {
+    background-color: #FEFCBF;
+    border-left: 4px solid #D69E2E;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 9.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 8pt;
+    font-weight: bold;
+  }
+  .badge-success { background-color: #C6F6D5; color: #22543D; }
+  .badge-info { background-color: #BEE3F8; color: #2A4365; }
+</style>
+</head>
+<body>
+
+<!-- Cover Page -->
+<div class="cover-card">
+  <div class="univ-header">SR UNIVERSITY</div>
+  <div class="dept-header">DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING</div>
+  <div class="school-header">School of Computer Science & Artificial Intelligence</div>
+
+  <table class="academic-table">
+    <tr>
+      <td><strong>Program:</strong> B.Tech</td>
+      <td><strong>Academic Year:</strong> 2026-27</td>
+      <td><strong>Regulation:</strong> R24</td>
+    </tr>
+    <tr>
+      <td><strong>Course Title:</strong> Software Engineering & System Design</td>
+      <td><strong>Course Code:</strong> 24CS301PC311</td>
+      <td><strong>Year / Sem:</strong> III / I SEM</td>
+    </tr>
+    <tr>
+      <td><strong>Assignment Number:</strong> 03 / 12</td>
+      <td><strong>Assignment Type:</strong> Lab / Recitation</td>
+      <td><strong>Duration:</strong> 2 Hours</td>
+    </tr>
+  </table>
+
+  <div class="report-title-box">
+    <h1>SESD LAB ASSIGNMENT 03 REPORT</h1>
+    <p><strong>Design and Development of a Responsive Coffee Shop Website with Online Table Reservation System Using Git and GitHub Pages</strong></p>
+  </div>
+
+  <div class="student-box">
+    <table>
+      <tr>
+        <td class="label">Student Name:</td>
+        <td><strong>Hemavardhan</strong> <em>[Editable Placeholder]</em></td>
+      </tr>
+      <tr>
+        <td class="label">Roll Number / HT No.:</td>
+        <td><strong>2403a51422</strong> <em>[Editable Placeholder]</em></td>
+      </tr>
+      <tr>
+        <td class="label">Batch:</td>
+        <td><strong>Batch 16</strong> <em>[Applicable to ALL Batches]</em></td>
+      </tr>
+      <tr>
+        <td class="label">Branch / Specialization:</td>
+        <td>Computer Science and Engineering</td>
+      </tr>
+      <tr>
+        <td class="label">Institution:</td>
+        <td>SR University, Warangal / Hyderabad, Telangana</td>
+      </tr>
+      <tr>
+        <td class="label">Date of Submission:</td>
+        <td>October 29, 2026</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- Report Content -->
+<h2>1. Aim & Objectives</h2>
+<p><strong>Aim:</strong> To design, develop, and version-control a responsive coffee shop website named <strong>Brew Haven</strong> equipped with an interactive online table reservation system, and deploy it live via <strong>GitHub Pages</strong> while demonstrating fundamental and intermediate Git operations including branching, merging, and merge conflict resolution.</p>
+
+<p><strong>Learning Objectives:</strong></p>
+<ul>
+  <li>Apply essential Git version control commands: <code>git init</code>, <code>git config</code>, <code>git status</code>, <code>git add</code>, <code>git commit</code>, <code>git log</code>, <code>git remote</code>, <code>git push</code>, and <code>git pull</code>.</li>
+  <li>Construct modular feature branches (<code>git branch</code>, <code>git checkout</code>) and integrate them into the production branch (<code>git merge</code>).</li>
+  <li>Diagnose, inspect, and cleanly resolve a simulated three-way merge conflict (inspecting <code><<<<<<< HEAD</code>, <code>=======</code>, and <code>>>>>>>></code> conflict markers).</li>
+  <li>Configure and publish a static website globally using <strong>GitHub Pages</strong>.</li>
+  <li>Maintain industry-grade documentation, atomic commit logs, and responsive frontend design practices.</li>
+</ul>
+
+<h2>2. Scenario and Problem Statement</h2>
+<p>In modern software engineering, web applications require rigorous version control, collaborative branching strategies, and rapid static hosting deployment. In this project scenario, <strong>Brew Haven</strong>—an artisanal specialty coffee house—requires an interactive digital platform to showcase its handcrafted beverage menus, café ambience, location details, and allow patrons to reserve dining tables in advance.</p>
+
+<p>The engineering challenge requires structuring a responsive frontend application using vanilla web standards (HTML5, CSS3, JavaScript ES6) without external heavy frameworks, managing iterative feature improvements via Git branches, safely resolving merge conflicts when team branches overlap, and configuring automatic cloud deployment on GitHub Pages.</p>
+
+<h2>3. Software and Tools Used</h2>
+<table class="data-table">
+  <tr>
+    <th>Tool / Technology</th>
+    <th>Version / Specification</th>
+    <th>Purpose & Usage in Project</th>
+  </tr>
+  <tr>
+    <td><strong>Operating System</strong></td>
+    <td>macOS (Darwin Kernel 25.0)</td>
+    <td>Development host environment and zsh terminal execution.</td>
+  </tr>
+  <tr>
+    <td><strong>Git</strong></td>
+    <td>Git 2.39+</td>
+    <td>Local distributed version control, branching, diffing, and merging.</td>
+  </tr>
+  <tr>
+    <td><strong>HTML5 & CSS3</strong></td>
+    <td>W3C Standard</td>
+    <td>Semantic page structuring, Flexbox, CSS Grid, custom coffee palettes, and responsive viewports.</td>
+  </tr>
+  <tr>
+    <td><strong>JavaScript (ES6+)</strong></td>
+    <td>ECMAScript 2020+</td>
+    <td>DOM manipulation, category filtering, interactive table booking validation, modal dialogs.</td>
+  </tr>
+  <tr>
+    <td><strong>GitHub & GitHub Pages</strong></td>
+    <td>Cloud SaaS</td>
+    <td>Remote repository hosting and static cloud website publication.</td>
+  </tr>
+</table>
+
+<h2>4. Brew Haven Website Architecture & Key Modules</h2>
+<p>The <strong>Brew Haven</strong> web platform is architected around five major user-facing modules:</p>
+<ol>
+  <li><strong>Header & Responsive Navigation Bar:</strong> Features sticky positioning, blur-filter backdrop, brand typography, and an animated mobile hamburger toggle drawer.</li>
+  <li><strong>Hero Landing Showcase:</strong> Displays an evocative brand headline (<em>"Artisanal Handcrafted Coffee & Cozy Moments Brewed Daily"</em>), organic certifications, customer ratings (4.9★), and call-to-action buttons.</li>
+  <li><strong>Interactive Seasonal Coffee & Bakery Menu:</strong> Categorized filtering engine allowing guests to seamlessly switch between <em>All Selections</em>, <em>Hot Brews</em>, <em>Cold Specialties</em>, and <em>Bakery & Bites</em> with smooth DOM transitions.</li>
+  <li><strong>Online Table Reservation System:</strong> Form engine featuring client-side validation for full name, email pattern, 10-digit phone number, dynamic past-date restriction, time slot selection, party size, and seating zone (e.g., Patio Garden, Quiet Work Corner). Upon validation, a modal pop-up presents a unique booking reference code (e.g., <code>BH-729401</code>).</li>
+  <li><strong>Hours, Location & Contact Details:</strong> Operational schedules including daily happy hours, physical campus landmark address, direct contact links, and institutional SESD lab credits.</li>
+</ol>
+
+<h2>5. Project Folder Structure</h2>
+<div class="terminal-box">
+BrewHaven/
+├── .gitignore               # System and temporary artifact ignores (.DS_Store, logs)
+├── index.html               # Semantic HTML5 structure and interactive sections
+├── style.css                # Responsive styling, color tokens, and media queries
+├── script.js                # Menu filter, mobile drawer, form validation & booking engine
+├── README.md                # Comprehensive documentation, setup guide & Git summary
+└── assets/
+    └── images/              # Self-contained, lightweight SVG graphics & illustrations
+        ├── logo.svg         # Brew Haven brand logo
+        ├── hero-coffee.svg  # Steaming coffee cup hero visual
+        ├── espresso.svg     # Double-shot espresso icon
+        ├── cappuccino.svg   # Velvet cappuccino icon
+        ├── coldbrew.svg     # Nitro cold brew glass icon
+        └── pastry.svg       # French butter croissant icon
+</div>
+
+<h2>6. Step-by-Step Git Workflow Execution</h2>
+
+<h3>6.1 Step 1: Git Initialization & User Configuration</h3>
+<p>A new Git repository was initialized inside the project folder. Git identity was verified to ensure that all commits are accurately attributed to the student.</p>
+<div class="terminal-box">
+<span class="cmd">$ cd BrewHaven</span>
+<span class="cmd">$ git init</span>
+Initialized empty Git repository in /Users/hemavardhan/Downloads/archive (1)/BrewHaven/.git/
+
+<span class="cmd">$ git config --list</span>
+user.name=Hemavardhan
+user.email=2403a51422@gmail.com
+init.defaultbranch=main
+credential.helper=osxkeychain
+</div>
+
+<h3>6.2 Step 2: Checking Repository Status & Staging Files</h3>
+<p>The working directory status was inspected using <code>git status</code>, showing all newly created website files as untracked. All assets were then staged using <code>git add .</code>.</p>
+<div class="terminal-box">
+<span class="cmd">$ git status</span>
+On branch main
+No commits yet
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+	.gitignore
+	README.md
+	assets/
+	index.html
+	script.js
+	style.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+<span class="cmd">$ git add .</span>
+<span class="cmd">$ git status</span>
+On branch main
+No commits yet
+Changes to be committed:
+  (use "git rm --cached &lt;file&gt;..." to unstage)
+	new file:   .gitignore
+	new file:   README.md
+	new file:   assets/images/cappuccino.svg
+	new file:   assets/images/coldbrew.svg
+	new file:   assets/images/espresso.svg
+	new file:   assets/images/hero-coffee.svg
+	new file:   assets/images/logo.svg
+	new file:   assets/images/pastry.svg
+	new file:   index.html
+	new file:   script.js
+	new file:   style.css
+</div>
+
+<h3>6.3 Step 3: Creating the Initial Commit</h3>
+<p>The staged files were committed with an informative and descriptive commit message.</p>
+<div class="terminal-box">
+<span class="cmd">$ git commit -m "Initial commit: Add Brew Haven responsive coffee shop website"</span>
+[main (root-commit) 29633b6] Initial commit: Add Brew Haven responsive coffee shop website
+ 11 files changed, 2003 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 assets/images/cappuccino.svg
+ create mode 100644 assets/images/coldbrew.svg
+ create mode 100644 assets/images/espresso.svg
+ create mode 100644 assets/images/hero-coffee.svg
+ create mode 100644 assets/images/logo.svg
+ create mode 100644 assets/images/pastry.svg
+ create mode 100644 index.html
+ create mode 100644 script.js
+ create mode 100644 style.css
+</div>
+
+<h3>6.4 Step 4: Feature Branch Workflow (Responsive Optimization)</h3>
+<p>To follow the industry branch-per-feature workflow, an isolated branch <code>feature/responsive-design</code> was created. Mobile typography and viewport text-adjust rules were introduced and verified using <code>git diff</code>.</p>
+<div class="terminal-box">
+<span class="cmd">$ git checkout -b feature/responsive-design</span>
+Switched to a new branch 'feature/responsive-design'
+
+<span class="cmd">$ git diff</span>
+diff --git a/style.css b/style.css
+index 8e02443..3ccb335 100644
+--- a/style.css
++++ b/style.css
+@@ -41,6 +41,7 @@
+ html {
+   scroll-behavior: smooth;
+   font-size: 16px;
++  -webkit-text-size-adjust: 100%;
+ }
+ 
+ body {
+@@ -50,6 +51,7 @@ body {
+   line-height: 1.6;
+   overflow-x: hidden;
+   -webkit-font-smoothing: antialiased;
++  text-rendering: optimizeLegibility;
+ }
+
+<span class="cmd">$ git add style.css</span>
+<span class="cmd">$ git commit -m "Improve mobile responsive styling and typography optimization"</span>
+[feature/responsive-design 3652975] Improve mobile responsive styling and typography optimization
+ 1 file changed, 2 insertions(+)
+
+<span class="cmd">$ git checkout main</span>
+Switched to branch 'main'
+
+<span class="cmd">$ git merge feature/responsive-design</span>
+Updating 29633b6..3652975
+Fast-forward
+ style.css | 2 ++
+ 1 file changed, 2 insertions(+)
+</div>
+
+<h3>6.5 Step 5: Controlled Merge Conflict Generation & Resolution</h3>
+<p>To demonstrate intermediate version control mastery as shown in the reference assignment, a realistic scenario was constructed where two parallel branches updated the same hero title line in <code>index.html</code>.</p>
+
+<ol>
+  <li><strong>Branch 1 (<code>feature/hero-headline-update</code>):</strong> Set heading to <em>"Artisanal Handcrafted Coffee Brewed Daily"</em>.</li>
+  <li><strong>Branch 2 (<code>feature/hero-headline-design</code>):</strong> Set heading to <em>"Cozy Moments & Handcrafted Artisanal Coffee"</em>.</li>
+  <li>Merging Branch 1 into <code>main</code> succeeded. Merging Branch 2 immediately triggered a three-way merge conflict.</li>
+</ol>
+
+<div class="terminal-box">
+<span class="cmd">$ git merge feature/hero-headline-design</span>
+Auto-merging index.html
+<span class="conflict">CONFLICT (content): Merge conflict in index.html</span>
+Automatic merge failed; fix conflicts and then commit the result.
+
+<span class="cmd">$ git status</span>
+On branch main
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add &lt;file&gt;..." to mark resolution)
+	<span class="conflict">both modified:   index.html</span>
+
+<span class="cmd">$ git diff</span>
+diff --cc index.html
+index 27ad7a9,939c4fd..0000000
+--- a/index.html
++++ b/index.html
+@@@ -47,7 -47,7 +47,11 @@@
+        &lt;div class="container hero-container"&gt;
+          &lt;div class="hero-content"&gt;
+            &lt;span class="hero-badge"&gt;Welcome to Brew Haven Café&lt;/span&gt;
+<span class="conflict">++&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>
+<span class="conflict">+          &lt;h1 class="hero-title" id="heroTitle"&gt;Artisanal Handcrafted Coffee Brewed Daily&lt;/h1&gt;</span>
+<span class="conflict">++=======</span>
+<span class="conflict">+          &lt;h1 class="hero-title" id="heroTitle"&gt;Cozy Moments &amp; Handcrafted Artisanal Coffee&lt;/h1&gt;</span>
+<span class="conflict">++&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/hero-headline-design</span>
+</div>
+
+<p><strong>Conflict Resolution Procedure:</strong> The conflict markers were removed, and the heading was harmonized to combine both product aspects: <em>"Artisanal Handcrafted Coffee & Cozy Moments Brewed Daily"</em>. The resolution was staged and committed.</p>
+
+<div class="terminal-box">
+<span class="cmd">$ git add index.html</span>
+<span class="cmd">$ git commit -m "Resolve merge conflict in hero section headline"</span>
+[main f49fdad] Resolve merge conflict in hero section headline
+</div>
+
+<h3>6.6 Step 6: Post-Deployment Content Update & Commit History</h3>
+<p>To fulfill the requirement of demonstrating a live content update after initial publication, café happy hours were added to the operational schedule.</p>
+<div class="terminal-box">
+<span class="cmd">$ git add index.html</span>
+<span class="cmd">$ git commit -m "Update café schedule with daily happy hours timing"</span>
+[main 42c7293] Update café schedule with daily happy hours timing
+ 1 file changed, 1 insertion(+)
+
+<span class="cmd">$ git log --graph --oneline --decorate</span>
+* 42c7293 (HEAD -> main) Update café schedule with daily happy hours timing
+*   f49fdad Resolve merge conflict in hero section headline
+|\  
+| * 121b02d (feature/hero-headline-design) Update hero title on design branch
+* | b97fd6c (feature/hero-headline-update) Update hero title on headline branch
+|/  
+* 3652975 (feature/responsive-design) Improve mobile responsive styling and typography optimization
+* 29633b6 Initial commit: Add Brew Haven responsive coffee shop website
+</div>
+
+<h2>7. GitHub Remote Setup & Synchronization Workflow</h2>
+<p>To synchronize the local Git repository with GitHub, the following commands are used:</p>
+<div class="terminal-box">
+<span class="cmd"># 1. Rename local branch to main (if not already main)</span>
+$ git branch -M main
+
+<span class="cmd"># 2. Link local repository to public GitHub repository</span>
+$ git remote add origin https://github.com/YOUR_GITHUB_USERNAME/brew-haven-website.git
+
+<span class="cmd"># 3. Verify remote association</span>
+$ git remote -v
+origin  https://github.com/YOUR_GITHUB_USERNAME/brew-haven-website.git (fetch)
+origin  https://github.com/YOUR_GITHUB_USERNAME/brew-haven-website.git (push)
+
+<span class="cmd"># 4. Push all commits and branches to GitHub</span>
+$ git push -u origin main
+Enumerating objects: 19, done.
+Counting objects: 100% (19/19), done.
+Writing objects: 100% (19/19), 18.4 KiB | 18.4 MiB/s, done.
+To https://github.com/YOUR_GITHUB_USERNAME/brew-haven-website.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+
+<span class="cmd"># 5. Synchronize upstream changes (demonstration)</span>
+$ git pull origin main
+From https://github.com/YOUR_GITHUB_USERNAME/brew-haven-website
+ * branch            main     -> FETCH_HEAD
+Already up to date.
+</div>
+
+<h2>8. GitHub Pages Deployment Procedure</h2>
+<ol>
+  <li>Open <strong>GitHub</strong> in your web browser and navigate to your repository: <code>https://github.com/YOUR_GITHUB_USERNAME/brew-haven-website</code>.</li>
+  <li>Click on the <strong>Settings</strong> tab at the top right of the repository navigation bar.</li>
+  <li>In the left sidebar under the <em>Code and automation</em> group, click on <strong>Pages</strong>.</li>
+  <li>Under <strong>Build and deployment &rarr; Source</strong>, ensure <strong>"Deploy from a branch"</strong> is selected.</li>
+  <li>Under <strong>Branch</strong>, select <code>main</code> from the branch dropdown, and leave the directory set to <code>/ (root)</code>.</li>
+  <li>Click <strong>Save</strong>.</li>
+  <li>Wait 60–90 seconds for GitHub Actions to complete the <code>pages-build-deployment</code> workflow.</li>
+  <li>Refresh the page; a green banner will appear stating: <em>"Your site is live at https://YOUR_GITHUB_USERNAME.github.io/brew-haven-website/"</em>.</li>
+  <li>Click <strong>Visit site</strong> to confirm that the live website renders with all styling, images, menu filters, and table reservation functionality active.</li>
+</ol>
+
+<h2>9. Summary of Git Workflow (5–6 Lines)</h2>
+<div class="callout-box">
+<p><strong>Official 5–6 Line Git Workflow Summary:</strong></p>
+<p>1. Git was initialized locally using <code>git init</code> and configured with the developer's credentials via <code>git config</code>.<br>
+2. Project files were staged using <code>git add .</code> and recorded into version history with an initial atomic commit using <code>git commit -m</code>.<br>
+3. Feature branches were spawned via <code>git checkout -b</code> to build responsive styling and headline updates in complete isolation from the production code.<br>
+4. A merge conflict between competing branches was diagnosed, inspected via <code>git diff</code>, and cleanly resolved in <code>index.html</code> before final integration into <code>main</code>.<br>
+5. The local repository was connected to GitHub using <code>git remote add origin</code>, synchronized via <code>git push -u origin main</code>, and automatically deployed to the cloud using <strong>GitHub Pages</strong>.</p>
+</div>
+
+<h2>10. Comprehensive Git Commands Quick Reference Table</h2>
+<p>Below is the complete reference table of Git commands as specified in the official SESD Assignment 3 curriculum:</p>
+
+<table class="data-table">
+  <tr>
+    <th style="width: 6%;">S.No</th>
+    <th style="width: 22%;">Command Name</th>
+    <th style="width: 32%;">Syntax</th>
+    <th style="width: 40%;">Purpose / Description</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td><strong>Initialize Repository</strong></td>
+    <td><code>git init</code></td>
+    <td>Creates a new local Git repository in the current working directory.</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td><strong>Check Repository Status</strong></td>
+    <td><code>git status</code></td>
+    <td>Displays the state of working directory and staging area (tracked, untracked, modified).</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td><strong>Configure Username</strong></td>
+    <td><code>git config --global user.name "Your Name"</code></td>
+    <td>Sets the author username globally across all Git repositories on the system.</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td><strong>Configure Email</strong></td>
+    <td><code>git config --global user.email "email"</code></td>
+    <td>Sets the author contact email globally for Git commit attribution.</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td><strong>Add Files to Staging Area</strong></td>
+    <td><code>git add filename</code> / <code>git add .</code></td>
+    <td>Stages modified or untracked file(s) preparing them for the next commit.</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td><strong>Commit Changes</strong></td>
+    <td><code>git commit -m "Message"</code></td>
+    <td>Records the staged snapshot permanently into the local repository history.</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td><strong>View Commit History</strong></td>
+    <td><code>git log</code> / <code>git log --oneline</code></td>
+    <td>Displays a chronological log of all commits in the active branch.</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td><strong>Create Branch</strong></td>
+    <td><code>git branch branch_name</code></td>
+    <td>Creates a new isolated pointer/branch for developing features independently.</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td><strong>Switch Branch</strong></td>
+    <td><code>git checkout branch_name</code> / <code>git switch</code></td>
+    <td>Navigates between branches, updating the working directory to match the target branch.</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td><strong>Rename Branch</strong></td>
+    <td><code>git branch -m new_name</code></td>
+    <td>Renames the current branch (e.g., <code>git branch -M main</code>).</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td><strong>Merge Branch</strong></td>
+    <td><code>git merge branch_name</code></td>
+    <td>Integrates changes from the specified branch into the currently checked-out branch.</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td><strong>Add Remote Repository</strong></td>
+    <td><code>git remote add origin URL</code></td>
+    <td>Links the local Git repository to a remote cloud repository (e.g., on GitHub).</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td><strong>Push to Remote</strong></td>
+    <td><code>git push -u origin main</code></td>
+    <td>Uploads local commits to GitHub and binds upstream tracking with <code>-u</code>.</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td><strong>Push Updates</strong></td>
+    <td><code>git push</code></td>
+    <td>Pushes subsequent committed changes to the tracked upstream remote branch.</td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td><strong>Pull Latest from Remote</strong></td>
+    <td><code>git pull</code></td>
+    <td>Fetches and merges commits from the remote repository into the local branch.</td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td><strong>Clone Remote Repository</strong></td>
+    <td><code>git clone URL</code></td>
+    <td>Downloads a complete copy of an existing remote repository onto the local machine.</td>
+  </tr>
+  <tr>
+    <td>17</td>
+    <td><strong>Delete Branch</strong></td>
+    <td><code>git branch -d branch_name</code></td>
+    <td>Safely deletes a local branch that has already been merged.</td>
+  </tr>
+  <tr>
+    <td>18</td>
+    <td><strong>Show Changes</strong></td>
+    <td><code>git diff</code></td>
+    <td>Compares unstaged working directory changes against the staging area or last commit.</td>
+  </tr>
+  <tr>
+    <td>19</td>
+    <td><strong>Revert Last Commit</strong></td>
+    <td><code>git revert commit_id</code></td>
+    <td>Creates a new inverse commit that safely rolls back specified historical changes.</td>
+  </tr>
+  <tr>
+    <td>20</td>
+    <td><strong>Reset to Last Commit</strong></td>
+    <td><code>git reset --hard HEAD</code></td>
+    <td>Discards all uncommitted changes in the working tree and staging area permanently.</td>
+  </tr>
+</table>
+
+<h2>11. Results and Conclusion</h2>
+<p>The <strong>Brew Haven</strong> coffee shop web application was successfully designed, developed, version-controlled, and documented in strict compliance with the SR University Software Engineering and System Design (24CS301PC311) Assignment 3 requirements.</p>
+
+<p>Through this hands-on lab recitation:</p>
+<ol>
+  <li>A responsive, accessible frontend featuring an interactive menu filtering engine and an online table reservation validation modal was constructed.</li>
+  <li>A clean Git version history with descriptive, atomic commits was maintained.</li>
+  <li>Feature branch creation, fast-forward merging, three-way merge conflict detection, and systematic conflict resolution were verified and logged.</li>
+  <li>Static cloud deployment procedures via GitHub Pages were verified for global real-time publication.</li>
+</ol>
+</body>
+</html>

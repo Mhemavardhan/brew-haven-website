@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Espresso Cup -->
+  <rect width="200" height="200" rx="20" fill="#2A1B14"/>
+  <ellipse cx="100" cy="155" rx="55" ry="12" fill="#1A110C"/>
+  <path d="M65 80 C65 140 75 148 100 148 C125 148 135 140 135 80 Z" fill="#E8D8C8"/>
+  <ellipse cx="100" cy="80" rx="35" ry="10" fill="#D4A373"/>
+  <ellipse cx="100" cy="82" rx="32" ry="8" fill="#3D1E0C"/>
+  <ellipse cx="98" cy="81" rx="26" ry="5" fill="#8C532E" opacity="0.8"/>
+  <path d="M133 90 C155 90 155 125 132 128" fill="none" stroke="#E8D8C8" stroke-width="7" stroke-linecap="round"/>
+  <path d="M93 65 C88 50 98 40 93 25" stroke="#D4A373" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  <path d="M107 65 C102 50 112 40 107 25" stroke="#D4A373" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+</svg>

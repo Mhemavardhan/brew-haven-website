@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Brew Haven - Handcrafted artisanal coffee, freshly baked pastries, and cozy ambience with online table reservations.">
+  <meta name="keywords" content="Brew Haven, Coffee Shop, Espresso, Cold Brew, Table Reservation, Artisanal Coffee">
+  <title>Brew Haven — Artisanal Coffee & Table Reservation</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-brand">
+        <img src="assets/images/logo.svg" alt="Brew Haven Logo" class="brand-logo" width="40" height="40">
+        <span class="brand-name">Brew Haven</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About Us</a></li>
+          <li><a href="#menu" class="nav-link">Menu</a></li>
+          <li><a href="#reservation" class="nav-link">Reservation</a></li>
+          <li><a href="#location" class="nav-link">Location</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <a href="#reservation" class="btn-primary nav-cta">Reserve a Table</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="hero-badge">Welcome to Brew Haven Café</span>
+          <h1 class="hero-title" id="heroTitle">Experience Artisanal Coffee in Every Sip</h1>
+          <p class="hero-description">
+            Immerse yourself in our ethically sourced, hand-roasted single-origin beans, precision brewing methods, and warm, inviting atmosphere designed for connection and quiet inspiration.
+          </p>
+          <div class="hero-actions">
+            <a href="#menu" class="btn-primary">Explore Our Menu</a>
+            <a href="#reservation" class="btn-secondary">Book a Table Online</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Organic Arabica</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">18+</span>
+              <span class="stat-label">Artisan Blends</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">4.9★</span>
+              <span class="stat-label">Customer Rating</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-img-wrapper">
+            <img src="assets/images/hero-coffee.svg" alt="Steaming artisanal coffee cup at Brew Haven" class="hero-img">
+            <div class="hero-floating-card">
+              <span class="card-icon">☕</span>
+              <div>
+                <strong>Fresh Daily Roast</strong>
+                <small>Roasted at 7:00 AM Today</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights Banner -->
+    <section class="features-banner">
+      <div class="container features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🌿</div>
+          <h3>Ethically Sourced</h3>
+          <p>Direct-trade organic coffee beans supporting sustainable fair-trade family farms worldwide.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3>Master Baristas</h3>
+          <p>Every pour, pull, and foam is crafted with precision to extract vibrant flavor profiles.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📶</div>
+          <h3>Cozy Workspaces</h3>
+          <p>Comfortable ergonomic seating, ultra-fast gigabit Wi-Fi, and accessible power outlets.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🥐</div>
+          <h3>Artisan Pastries</h3>
+          <p>Oven-fresh gourmet croissants, sourdough rolls, and pastries baked in-house each morning.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="container about-container">
+        <div class="about-image-column">
+          <div class="about-card-banner">
+            <img src="assets/images/cappuccino.svg" alt="Artisanal cappuccino with latte art" class="about-img">
+            <div class="about-badge-established">
+              <span>Crafting Moments Since 2021</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text-column">
+          <span class="section-tag">Our Heritage</span>
+          <h2 class="section-title">Where Passion for Coffee Meets Community Connection</h2>
+          <p>
+            Brew Haven began with a singular obsession: to honor the craft of coffee making from cherry to cup. What started as a micro-roastery has grown into a neighborhood sanctuary for students, professionals, and coffee purists alike.
+          </p>
+          <p>
+            We curate select single-origin coffees from Ethiopia, Colombia, Guatemala, and Coorg, roasting in small batches weekly to safeguard rich terroir, natural sweetness, and smooth finishes.
+          </p>
+          <ul class="about-checklist">
+            <li>✓ Sustainably sourced shade-grown whole beans</li>
+            <li>✓ Custom calibrated water temperature and extraction</li>
+            <li>✓ Dairy-free plant milk options: Oat, Almond, and Soy</li>
+            <li>✓ Zero single-use plastic takeaway containers</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Handcrafted Selections</span>
+          <h2 class="section-title">Our Seasonal Coffee & Bakery Menu</h2>
+          <p class="section-subtitle">Discover handcrafted hot espresso drinks, slow-steeped cold brews, and fresh artisanal bakery treats.</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="menu-filters">
+          <button class="filter-btn active" data-filter="all">All Selections</button>
+          <button class="filter-btn" data-filter="hot">Hot Brews</button>
+          <button class="filter-btn" data-filter="cold">Cold Specialties</button>
+          <button class="filter-btn" data-filter="bakery">Bakery & Bites</button>
+        </div>
+
+        <!-- Menu Cards Grid -->
+        <div class="menu-grid" id="menuGrid">
+          <!-- Item 1 -->
+          <article class="menu-card" data-category="hot">
+            <div class="menu-card-img">
+              <img src="assets/images/espresso.svg" alt="Double Shot Espresso">
+              <span class="menu-tag">Bestseller</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3>Single-Origin Espresso</h3>
+                <span class="menu-price">$3.50</span>
+              </div>
+              <p class="menu-desc">Double shot extracted from medium-roast Colombian beans featuring dark chocolate notes and rich crema.</p>
+              <div class="menu-meta">
+                <span>Intense & Velvety</span>
+                <span class="dietary-badge">Vegan</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 2 -->
+          <article class="menu-card" data-category="hot">
+            <div class="menu-card-img">
+              <img src="assets/images/cappuccino.svg" alt="Velvet Cappuccino">
+              <span class="menu-tag">Signature</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3>Velvet Cappuccino</h3>
+                <span class="menu-price">$4.75</span>
+              </div>
+              <p class="menu-desc">Balanced espresso with silky steamed whole milk, thick microfoam layer, and a sprinkle of organic cocoa.</p>
+              <div class="menu-meta">
+                <span>Creamy & Smooth</span>
+                <span class="dietary-badge">Custom Milk</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 3 -->
+          <article class="menu-card" data-category="cold">
+            <div class="menu-card-img">
+              <img src="assets/images/coldbrew.svg" alt="24-Hour Nitro Cold Brew">
+              <span class="menu-tag">Refreshing</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3>24-Hour Nitro Cold Brew</h3>
+                <span class="menu-price">$5.25</span>
+              </div>
+              <p class="menu-desc">Coarse-ground Ethiopian Yirgacheffe slow-steeped in cold filtered water for 24 hours, infused with nitrogen.</p>
+              <div class="menu-meta">
+                <span>Low Acidity & Bold</span>
+                <span class="dietary-badge">Sugar Free</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 4 -->
+          <article class="menu-card" data-category="bakery">
+            <div class="menu-card-img">
+              <img src="assets/images/pastry.svg" alt="Golden Butter Croissant">
+              <span class="menu-tag">Fresh Daily</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3>French Butter Croissant</h3>
+                <span class="menu-price">$3.95</span>
+              </div>
+              <p class="menu-desc">Traditional flaky French pastry layered with Normandy butter, baked golden brown with airy honeycomb crumb.</p>
+              <div class="menu-meta">
+                <span>Flaky & Buttery</span>
+                <span class="dietary-badge">Vegetarian</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Online Table Reservation System Section -->
+    <section class="reservation-section" id="reservation">
+      <div class="container">
+        <div class="reservation-wrapper">
+          <div class="reservation-info">
+            <span class="section-tag light">Online Table Booking</span>
+            <h2 class="section-title text-light">Reserve Your Coffee Haven</h2>
+            <p class="text-light-muted">
+              Whether you are meeting a client, working on a project, or catching up with loved ones over warm brews, book your preferred table in advance to avoid waiting.
+            </p>
+            <div class="reservation-features">
+              <div class="res-feature-item">
+                <span class="res-icon">✓</span>
+                <div>
+                  <strong>Instant Confirmation</strong>
+                  <p>Receive your booking reference immediately upon submission.</p>
+                </div>
+              </div>
+              <div class="res-feature-item">
+                <span class="res-icon">✓</span>
+                <div>
+                  <strong>Seating Selection</strong>
+                  <p>Choose between quiet workspace corners, bright window tables, or outdoor patios.</p>
+                </div>
+              </div>
+              <div class="res-feature-item">
+                <span class="res-icon">✓</span>
+                <div>
+                  <strong>No Booking Fees</strong>
+                  <p>Free table reservation held for up to 15 minutes past scheduled time.</p>
+                </div>
+              </div>
+            </div>
+            <div class="reservation-note">
+              <small>ℹ️ Note: Table reservations are processed client-side with interactive validation for demonstration. No external backend database required.</small>
+            </div>
+          </div>
+
+          <!-- Reservation Form -->
+          <div class="reservation-form-card">
+            <h3 class="form-title">Book a Table</h3>
+            <form id="reservationForm" novalidate>
+              <div class="form-group">
+                <label for="fullName">Full Name <span class="required">*</span></label>
+                <input type="text" id="fullName" name="fullName" placeholder="e.g. Alex Morgan" required>
+                <span class="error-msg" id="nameError"></span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-half">
+                  <label for="email">Email Address <span class="required">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="alex@example.com" required>
+                  <span class="error-msg" id="emailError"></span>
+                </div>
+                <div class="form-group col-half">
+                  <label for="phone">Phone Number <span class="required">*</span></label>
+                  <input type="tel" id="phone" name="phone" placeholder="9876543210" required>
+                  <span class="error-msg" id="phoneError"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-half">
+                  <label for="resDate">Reservation Date <span class="required">*</span></label>
+                  <input type="date" id="resDate" name="resDate" required>
+                  <span class="error-msg" id="dateError"></span>
+                </div>
+                <div class="form-group col-half">
+                  <label for="resTime">Preferred Time <span class="required">*</span></label>
+                  <select id="resTime" name="resTime" required>
+                    <option value="" disabled selected>Select Time Slot</option>
+                    <option value="08:00 AM">08:00 AM — Morning Fresh</option>
+                    <option value="10:30 AM">10:30 AM — Brunch Coffee</option>
+                    <option value="01:00 PM">01:00 PM — Midday Break</option>
+                    <option value="04:00 PM">04:00 PM — Afternoon Chill</option>
+                    <option value="06:30 PM">06:30 PM — Evening Rendezvous</option>
+                    <option value="08:00 PM">08:00 PM — Night Brew</option>
+                  </select>
+                  <span class="error-msg" id="timeError"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-half">
+                  <label for="guests">Number of Guests <span class="required">*</span></label>
+                  <select id="guests" name="guests" required>
+                    <option value="" disabled selected>Select Guests</option>
+                    <option value="1 Guest">1 Guest (Solo Study)</option>
+                    <option value="2 Guests">2 Guests (Table for Two)</option>
+                    <option value="3-4 Guests">3–4 Guests (Small Group)</option>
+                    <option value="5-8 Guests">5–8 Guests (Large Gathering)</option>
+                  </select>
+                  <span class="error-msg" id="guestsError"></span>
+                </div>
+                <div class="form-group col-half">
+                  <label for="seatingArea">Seating Preference</label>
+                  <select id="seatingArea" name="seatingArea">
+                    <option value="Window View">Window View</option>
+                    <option value="Quiet Work Corner">Quiet Work Corner</option>
+                    <option value="Patio Garden">Patio Garden (Outdoors)</option>
+                    <option value="Cozy Lounge Couch">Cozy Lounge Couch</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="specialRequests">Special Requests / Notes (Optional)</label>
+                <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Power socket near table, dietary restrictions, quiet corner, etc."></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary btn-block" id="reserveBtn">
+                <span>Confirm Reservation</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Opening Hours Section -->
+    <section class="location-section" id="location">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Visit Our Café</span>
+          <h2 class="section-title">Hours & Location</h2>
+          <p class="section-subtitle">Drop by our café for your morning roast or reserve a cozy corner for the evening.</p>
+        </div>
+
+        <div class="location-grid">
+          <div class="location-card">
+            <div class="loc-icon">📍</div>
+            <h3>Address</h3>
+            <p>Brew Haven Coffee House<br>42 Artisan Boulevard, High Street<br>Hyderabad / Warangal, Telangana</p>
+            <p><strong>Landmark:</strong> Near SR University Campus Road</p>
+          </div>
+          <div class="location-card">
+            <div class="loc-icon">🕒</div>
+            <h3>Opening Hours</h3>
+            <ul class="hours-list">
+              <li><span>Monday – Friday:</span> <strong>7:00 AM – 9:30 PM</strong></li>
+              <li><span>Saturday:</span> <strong>8:00 AM – 10:30 PM</strong></li>
+              <li><span>Sunday:</span> <strong>8:00 AM – 10:00 PM</strong></li>
+            </ul>
+          </div>
+          <div class="location-card">
+            <div class="loc-icon">📞</div>
+            <h3>Contact Directly</h3>
+            <p>Email: <a href="mailto:info@brewhaven.cafe">info@brewhaven.cafe</a></p>
+            <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
+            <p>Instagram: <a href="#home">@brewhavencafe</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Reservation Confirmation Modal -->
+  <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Close confirmation modal">&times;</button>
+      <div class="modal-header">
+        <div class="success-icon">✓</div>
+        <h3>Table Reservation Confirmed!</h3>
+        <p>Thank you for choosing Brew Haven. Your table has been reserved.</p>
+      </div>
+      <div class="modal-body" id="modalSummary">
+        <!-- Injected via JavaScript -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary" id="modalDoneBtn">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container footer-content">
+      <div class="footer-col brand-col">
+        <div class="footer-brand">
+          <img src="assets/images/logo.svg" alt="Brew Haven" width="32" height="32">
+          <span>Brew Haven</span>
+        </div>
+        <p>A specialty artisanal coffee house dedicated to handcrafted coffee, authentic community, and cozy workspace comfort.</p>
+        <p class="copyright">© 2026 Brew Haven Café. All rights reserved.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#menu">Coffee Menu</a></li>
+          <li><a href="#reservation">Table Reservation</a></li>
+          <li><a href="#location">Hours & Location</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>SESD Lab Details</h4>
+        <p>Course: <strong>Software Engineering & System Design</strong></p>
+        <p>Course Code: <strong>24CS301PC311</strong></p>
+        <p>Department: <strong>Computer Science & Engineering</strong></p>
+        <p>Institution: <strong>SR University</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

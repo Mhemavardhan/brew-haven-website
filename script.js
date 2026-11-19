@@ -9,7 +9,7 @@
 // =============================================================================
 // Automatically routes to localhost for local testing or deployed Render backend in production.
 const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-  ? 'http://localhost:5000'
+  ? 'http://localhost:5001'
   : 'https://brew-haven-backend.onrender.com'; // Deployed Render URL
 
 document.addEventListener('DOMContentLoaded', () => {

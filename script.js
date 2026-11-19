@@ -296,7 +296,19 @@ document.addEventListener('DOMContentLoaded', () => {
           body: JSON.stringify(reservationPayload)
         });
 
-        const result = await response.json();
+        let result = {};
+        const contentType = response.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+          result = await response.json();
+        } else {
+          const rawText = await response.text().catch(() => '');
+          result = {
+            success: false,
+            message: response.status === 404
+              ? `Backend service not found on Render (HTTP 404). Please ensure your Web Service has been created at ${API_BASE_URL}.`
+              : `Server returned HTTP ${response.status}: ${rawText.slice(0, 100)}`
+          };
+        }
 
         if (response.ok && result.success) {
           // Success: Display booking reference & details in modal
@@ -337,7 +349,10 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (networkError) {
         console.error('Reservation API Error:', networkError);
         showFormAlert(
-          'Unable to reach the reservation service. If the server is spinning up (free tier), please wait 30 seconds and click Confirm again, or reach us at +91 98765 43210.',
+          `Unable to connect to the reservation backend at <code>${API_BASE_URL}</code>.<br>` +
+          `• <strong>Action Required:</strong> The backend has not been deployed on Render yet, or the service URL is different.<br>` +
+          `• <strong>If already created:</strong> Free-tier servers sleep after inactivity; wait 30 seconds and click Confirm again.<br>` +
+          `• <strong>Instant Contact:</strong> Call us at +91 98765 43210.`,
           'error'
         );
       } finally {

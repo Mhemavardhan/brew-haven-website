@@ -348,11 +348,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (networkError) {
         console.error('Reservation API Error:', networkError);
+        const ownerMail = 'hemavardhannayak45@gmail.com';
+        const mailSubject = encodeURIComponent('New Table Reservation – Brew Haven Café');
+        const mailBody = encodeURIComponent(
+          'BREW HAVEN CAFÉ\nNEW TABLE RESERVATION\n\n' +
+          `Customer Name:      ${reservationPayload.fullName}\n` +
+          `Customer Email:     ${reservationPayload.email}\n` +
+          `Phone Number:       ${reservationPayload.phone}\n` +
+          `Reservation Date:   ${reservationPayload.resDate}\n` +
+          `Reservation Time:   ${reservationPayload.resTime}\n` +
+          `Number of Guests:   ${reservationPayload.guests}\n` +
+          `Seating Preference: ${reservationPayload.seatingArea}\n` +
+          `Special Requests:   ${reservationPayload.specialRequests || 'None'}\n`
+        );
+        const mailtoLink = `mailto:${ownerMail}?subject=${mailSubject}&body=${mailBody}`;
+
         showFormAlert(
-          `Unable to connect to the reservation backend at <code>${API_BASE_URL}</code>.<br>` +
-          `• <strong>Action Required:</strong> The backend has not been deployed on Render yet, or the service URL is different.<br>` +
-          `• <strong>If already created:</strong> Free-tier servers sleep after inactivity; wait 30 seconds and click Confirm again.<br>` +
-          `• <strong>Instant Contact:</strong> Call us at +91 98765 43210.`,
+          `<strong>⚠️ Automated Backend Server is Not Active:</strong><br>` +
+          `The Node.js backend has not been deployed to Render yet (<code>${API_BASE_URL}</code> returned 404).<br><br>` +
+          `<strong>To deliver this reservation to ${ownerMail} right now:</strong><br>` +
+          `<a href="${mailtoLink}" class="btn-primary" style="margin-top: 8px; display: inline-flex; padding: 8px 16px; font-size: 0.85rem; border-radius: 6px; text-decoration: none; color: #FFF9F3;">✉️ Click to Send via Your Email App</a><br><br>` +
+          `<small style="color: #7A6251;">To enable 100% automated background emails without opening your email app, complete the 2-minute Render deployment.</small>`,
           'error'
         );
       } finally {

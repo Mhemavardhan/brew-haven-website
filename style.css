@@ -767,6 +767,75 @@ input:focus, select:focus, textarea:focus {
   display: block;
 }
 
+/* --- Form Status Alert & Interactive Backend States --- */
+.form-status-alert {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  margin-bottom: 18px;
+  line-height: 1.5;
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.form-status-alert.visible {
+  display: block;
+}
+
+.form-status-alert.error {
+  background-color: #FDEDEC;
+  color: #922B21;
+  border: 1px solid #F5B7B1;
+}
+
+.form-status-alert.success {
+  background-color: #EAFAF1;
+  color: #145A32;
+  border: 1px solid #A9DFBF;
+}
+
+.form-status-alert.info {
+  background-color: #EBF5FB;
+  color: #1B4F72;
+  border: 1px solid #AED6F1;
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn-spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-left: 10px;
+  border: 2px solid rgba(255, 249, 243, 0.3);
+  border-top-color: #FFF9F3;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.modal-email-notice {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background-color: #E8F5E9;
+  border: 1px solid #C8E6C9;
+  border-radius: var(--radius-sm);
+  color: #2E7D32;
+  font-size: 0.82rem;
+  text-align: center;
+}
+
 /* --- Location & Hours Section --- */
 .location-section {
   padding: 90px 0;

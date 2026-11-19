@@ -27,13 +27,14 @@ The project demonstrates professional frontend design principles alongside indus
 
 ## 🛠️ Technologies Used
 
-| Technology | Purpose |
-| :--- | :--- |
-| **HTML5** | Semantic document structuring (`header`, `nav`, `section`, `article`, `footer`, accessible forms) |
-| **CSS3** | Custom typography, Flexbox, CSS Grid, media queries, CSS variables, modal overlays |
-| **JavaScript (ES6+)** | DOM manipulation, hamburger menu toggle, menu category filtering, form validation, dynamic modal |
-| **Git** | Distributed version control (branches, commits, merges, conflict resolution) |
-| **GitHub Pages** | Static cloud deployment and hosting |
+| Layer | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Frontend** | HTML5, CSS3, JavaScript (ES6+) | Semantic UI, responsive coffee theme, dynamic menu filtering, client-side validation |
+| **Backend** | Node.js, Express.js | REST API server, routing, JSON payload parsing, centralized error handling |
+| **Email Engine** | Nodemailer, Gmail SMTP | Automated dual email dispatch (Café Owner notification + Customer confirmation) |
+| **Security** | Helmet, CORS, Express-Rate-Limit, Express-Validator | Security headers, origin whitelisting, anti-spam rate limiting, input sanitization |
+| **Config** | Dotenv (`.env`) | Safe environment credential management (Gmail App Password) |
+| **Hosting** | GitHub Pages & Render | Static frontend on GitHub Pages, Node.js backend Web Service on Render |
 
 ---
 
@@ -41,45 +42,146 @@ The project demonstrates professional frontend design principles alongside indus
 
 ```text
 BrewHaven/
-├── index.html               # Main website markup & semantic sections
-├── style.css                # Responsive stylesheet and typography
-├── script.js                # Interactive logic, filtering & reservation engine
+├── index.html                       # Frontend website & reservation form
+├── style.css                        # Responsive styles, theme & interactive states
+├── script.js                        # Frontend UI logic & backend API integration
 ├── assets/
-│   └── images/              # Optimized SVG coffee art, logos and icons
+│   └── images/                      # Optimized SVG coffee art, logos and icons
 │       ├── logo.svg
 │       ├── hero-coffee.svg
 │       ├── espresso.svg
 │       ├── cappuccino.svg
 │       ├── coldbrew.svg
 │       └── pastry.svg
-├── README.md                # Project documentation & Git workflow guide
-└── .gitignore               # Ignored system and build files
+├── backend/
+│   ├── server.js                    # Express application entry point & CORS
+│   ├── package.json                 # Backend dependencies, metadata & scripts
+│   ├── .env                         # Local environment secrets (ignored by Git)
+│   ├── .env.example                 # Environment configuration template
+│   ├── README.md                    # Dedicated backend documentation
+│   ├── config/
+│   │   └── emailConfig.js           # Nodemailer Gmail SMTP transporter setup
+│   ├── controllers/
+│   │   └── reservationController.js # Reservation business logic & response handling
+│   ├── routes/
+│   │   └── reservationRoutes.js     # /api/reservations route mappings
+│   ├── services/
+│   │   └── emailService.js          # Branded HTML email templates for owner & customer
+│   └── middleware/
+│       ├── validator.js             # Input validation & future-date checks
+│       ├── rateLimiter.js           # Anti-spam request throttling
+│       └── errorHandler.js          # 404 & global exception handler
+├── README.md                        # Master project documentation
+└── .gitignore                       # Ignored files (node_modules, .env, OS files)
 ```
 
 ---
 
-## 🚀 How to Run Locally
+## 📧 Automated Dual-Email System
 
-1. **Clone or Download the Repository:**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/brew-haven-website.git
-   cd brew-haven-website
-   ```
+Whenever a customer submits a table reservation:
 
-2. **Open in Any Modern Browser:**
-   - On macOS:
-     ```bash
-     open index.html
-     ```
-   - On Windows:
-     ```bash
-     start index.html
-     ```
-   - Or using Python's built-in local development server:
-     ```bash
-     python3 -m http.server 8000
-     ```
-     Then navigate to `http://localhost:8000` in your web browser.
+1. **Owner Notification Email:**
+   - **Subject:** `New Table Reservation – Brew Haven Café`
+   - **Recipient:** Café owner's Gmail address (`OWNER_EMAIL`)
+   - **Content:** Customer name, email, phone, reservation date, time slot, party size, seating zone, special requests, unique booking reference, and direct contact action buttons.
+
+2. **Customer Confirmation Email:**
+   - **Subject:** `Your Table Reservation is Confirmed – Brew Haven Café`
+   - **Recipient:** Customer's registered email address
+   - **Content:** Personalized greeting, unique booking reference code (`BH-XXXXXX`), reservation summary table, arrival guidelines (15-minute grace period), cancellation instructions, and café contact details.
+
+---
+
+## 🚀 Running Locally on MacBook M4
+
+### Step 1: Install Node.js (If not already installed)
+Check if Node.js is installed:
+```bash
+node -v
+```
+If not installed, install it using Homebrew:
+```bash
+brew install node
+```
+*Or download the macOS installer directly from [nodejs.org](https://nodejs.org/).*
+
+### Step 2: Install Backend Dependencies
+```bash
+cd backend
+npm install
+```
+
+### Step 3: Configure Environment Variables
+Create your local `.env` file from the template:
+```bash
+cp .env.example .env
+```
+Open `.env` and set your Gmail address and 16-character Google App Password:
+```env
+EMAIL_USER=yourcafegmail@gmail.com
+EMAIL_PASS=your-16-character-app-password
+OWNER_EMAIL=yourcafegmail@gmail.com
+```
+
+### Step 4: Start the Backend Server
+```bash
+npm start
+```
+The server will start at: `http://localhost:5000`
+
+### Step 5: Open the Frontend Website
+In a new terminal window, navigate back to the root `BrewHaven` folder and start a local HTTP server:
+```bash
+cd ..
+python3 -m http.server 8000
+```
+Open your browser and visit: `http://localhost:8000`  
+The frontend will automatically connect to `http://localhost:5000` when running locally!
+
+---
+
+## ☁️ Deploying Backend to Render & Connecting Frontend
+
+### 1. Generate Google App Password
+1. Sign in to your Google Account at [myaccount.google.com](https://myaccount.google.com/).
+2. Go to **Security** &rarr; Ensure **2-Step Verification** is **ON**.
+3. Go to [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords).
+4. Enter App name: `Brew Haven Backend` &rarr; Click **Create**.
+5. Copy the generated 16-character password.
+
+### 2. Deploy to Render
+1. Go to [render.com](https://render.com/) and create a free account.
+2. Click **New +** &rarr; **Web Service**.
+3. Select your repository: `https://github.com/Mhemavardhan/brew-haven-website`.
+4. Configure service details:
+   - **Name:** `brew-haven-backend`
+   - **Root Directory:** `backend`
+   - **Runtime:** `Node`
+   - **Build Command:** `npm install`
+   - **Start Command:** `node server.js`
+   - **Instance Type:** `Free`
+5. Add **Environment Variables**:
+   - `NODE_ENV`: `production`
+   - `CLIENT_ORIGIN`: `https://mhemavardhan.github.io`
+   - `EMAIL_SERVICE`: `gmail`
+   - `EMAIL_HOST`: `smtp.gmail.com`
+   - `EMAIL_PORT`: `465`
+   - `EMAIL_SECURE`: `true`
+   - `EMAIL_USER`: your Gmail address
+   - `EMAIL_PASS`: your 16-character App Password
+   - `OWNER_EMAIL`: your Gmail address
+6. Click **Deploy Web Service**.
+7. Copy your deployed Render URL (e.g., `https://brew-haven-backend.onrender.com`).
+
+### 3. Connect Frontend to Render Backend
+In `script.js` (line 12), update `API_BASE_URL` with your Render backend URL:
+```javascript
+const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? 'http://localhost:5000'
+  : 'https://YOUR-APP-NAME.onrender.com';
+```
+Commit and push your changes to GitHub `main` branch. GitHub Pages will update automatically!
 
 ---
 
